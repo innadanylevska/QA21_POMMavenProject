@@ -9,6 +9,7 @@ import pages.alertsFrameWindows.ModalWindowPage;
 import pages.bookStore.LoginPage;
 import pages.bookStore.ProfilePage;
 import pages.elements.BrokenLinksImagesPage;
+import pages.elements.UploadDownloadPage;
 import pages.forms.PracticeFormPage;
 import pages.interactions.DroppablePage;
 import pages.widgets.SelectMenuPage;
@@ -87,5 +88,13 @@ public class SidePanel extends BasePage {
     public PracticeFormPage selectPracticeForm() {
         click(practiceForm);
         return new PracticeFormPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Upload and Download']")
+    WebElement uploadAndDownload;
+
+    public UploadDownloadPage selectUploadAndDownload() {
+        clickWithJSExecutor(uploadAndDownload, 0, 500);
+        return new UploadDownloadPage(driver);
     }
 }
